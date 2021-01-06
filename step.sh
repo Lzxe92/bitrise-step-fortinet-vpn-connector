@@ -31,7 +31,7 @@ NUMBER_OF_RETRY=0
 until fgrep -q "Tunnel is up" $BITRISE_DEPLOY_DIR/logs.txt || [ $NUMBER_OF_RETRY -eq 5 ]; do
   ((NUMBER_OF_RETRY++))
   cat $BITRISE_DEPLOY_DIR/logs.txt
-  sleep 100;
+  sleep 5;
 done
 
 wget https://src.singtelnwk.com/
