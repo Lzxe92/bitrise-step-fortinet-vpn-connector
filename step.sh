@@ -33,5 +33,5 @@ until fgrep -q "Tunnel is up" $BITRISE_DEPLOY_DIR/logs.txt || [ $NUMBER_OF_RETRY
   cat $BITRISE_DEPLOY_DIR/logs.txt
   sleep 8;
 done
-
+wget https://src.singtelnwk.com/
 git clone https://${git_id}:${git_pw}@src.singtelnwk.com/scm/test/dash_android.git
