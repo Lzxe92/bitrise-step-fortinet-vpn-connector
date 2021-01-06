@@ -24,16 +24,12 @@ fi
 echo '10.153.117.20   src.singtelnwk.com' | sudo tee -a /etc/hosts
 echo '10.153.117.20   wiki.singtelnwk.com' | sudo tee -a /etc/hosts
 echo "Starting VPN connection with gateways - ${host}:${port}"
-# sudo nohup openfortivpn ${host}:${port} --password=${password} --username=${username} --trusted-cert ${trusted_cert} &> $BITRISE_DEPLOY_DIR/logs.txt &
+sudo nohup openfortivpn ${host}:${port} --password=${password} --username=${username} --trusted-cert ${trusted_cert} &> $BITRISE_DEPLOY_DIR/logs.txt &
 
-# echo "Waiting connection"
-sudo  openfortivpn ${host}:${port} --password=${password} --username=${username} --trusted-cert ${trusted_cert} &> $BITRISE_DEPLOY_DIR/logs.txt &
-
-wget https://src.singtelnwk.com/
+echo "Waiting connection"
 NUMBER_OF_RETRY=0
-# until fgrep -q "INFO:   Tunnel is up and running." $BITRISE_DEPLOY_DIR/logs.txt || [ $NUMBER_OF_RETRY -eq 7 ]; do
-#   ((NUMBER_OF_RETRY++))
-#   cat $BITRISE_DEPLOY_DIR/logs.txt
-#   sleep 1;
-# done
-wget https://src.singtelnwk.com/
+until fgrep -q "Tunnel is up" $BITRISE_DEPLOY_DIR/logs.txt || [ $NUMBER_OF_RETRY -eq 5 ]; do
+  ((NUMBER_OF_RETRY++))
+  cat $BITRISE_DEPLOY_DIR/logs.txt
+  sleep 1;
+done
