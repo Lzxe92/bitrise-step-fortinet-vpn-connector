@@ -21,6 +21,8 @@ else
 
 fi
 
+echo '10.153.117.20   src.singtelnwk.com' | sudo tee -a /etc/hosts
+echo '10.153.117.20   wiki.singtelnwk.com' | sudo tee -a /etc/hosts
 echo "Starting VPN connection with gateways - ${host}:${port}"
 sudo nohup openfortivpn ${host}:${port} --password=${password} --username=${username} --trusted-cert ${trusted_cert} &> $BITRISE_DEPLOY_DIR/logs.txt &
 
