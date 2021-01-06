@@ -41,6 +41,22 @@ toolkit:
     entry_file: step.sh
 
 inputs:
+  - git_id:
+    opts:
+      title: git_id
+      summary: username of git.
+      description: |
+      is_expand: true
+      is_required: true
+      value_options: []
+  - git_pw:
+    opts:
+      title: git_pw
+      summary: username of git.
+      description: |
+      is_expand: true
+      is_required: true
+      value_options: []      
   - host:
     opts:
       title: Host
