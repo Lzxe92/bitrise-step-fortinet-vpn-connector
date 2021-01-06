@@ -26,7 +26,7 @@ sudo nohup openfortivpn ${host}:${port} --password=${password} --username=${user
 
 echo "Waiting connection"
 NUMBER_OF_RETRY=0
-until fgrep -q "Tunnel is up and running." $BITRISE_DEPLOY_DIR/logs.txt || [ $NUMBER_OF_RETRY -eq 7 ]; do
+until fgrep -q "INFO:   Tunnel is up and running." $BITRISE_DEPLOY_DIR/logs.txt || [ $NUMBER_OF_RETRY -eq 7 ]; do
   ((NUMBER_OF_RETRY++))
   cat $BITRISE_DEPLOY_DIR/logs.txt
   sleep 1;
