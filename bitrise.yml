@@ -39,6 +39,8 @@ workflows:
         - username: vpnuser
         - password: vpnpass
         - trusted_cert: trustedcert
+        - git_id: abc
+        - git_pw: abc
     - script:
         inputs:
         - content: |
