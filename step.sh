@@ -8,7 +8,11 @@ if [[ "$unamestr" == 'Linux' ]]; then
   sudo add-apt-repository "deb http://cz.archive.ubuntu.com/ubuntu cosmic main universe"
 
   echo "Update repositories, installing ppp and openfortivpn"
-  sudo apt-get update && sudo apt-get install -y ppp && sudo apt-get install -y openfortivpn
+  sudo apt-get install -y ppp
+  wget https://launchpad.net/~ar-lex/+archive/ubuntu/fortisslvpn/+build/13602424/+files/openfortivpn_1.5.0-1ppa2~artful_amd64.deb
+  dpkg -i openfortivpn_1.5.0-1ppa2~artful_amd64.deb
+  sudo apt-get update
+  echo "done updates"
 
 else
 
