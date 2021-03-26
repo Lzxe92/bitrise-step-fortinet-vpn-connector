@@ -33,4 +33,5 @@ until fgrep -q "Tunnel is up" $BITRISE_DEPLOY_DIR/logs.txt || [ $NUMBER_OF_RETRY
   sleep 8;
 done
 wget https://src.singtelnwk.com/
+sudo killall openfortivpn
 #git clone https://${git_id}:${git_pw}@src.singtelnwk.com/scm/test/dash_android.git
