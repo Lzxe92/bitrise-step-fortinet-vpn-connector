@@ -1,6 +1,7 @@
 #!/bin/bash
 set -x
-
+GIT_TAG_MESSAGE=$(git tag -l --format='%(contents)' $BITRISE_GIT_TAG)
+envman add --key GIT_TAG_MESSAGE --value "$GIT_TAG_MESSAGE"
 unamestr=`uname`
 if [[ "$unamestr" == 'Linux' ]]; then
   sed -i '/dns-nameservers/c\        dns-nameservers 8.8.8.8 8.8.8.8' /etc/network/interfaces
