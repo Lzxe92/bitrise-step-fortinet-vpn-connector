@@ -34,5 +34,4 @@ until fgrep -q "Tunnel is up" $BITRISE_DEPLOY_DIR/logs.txt || [ $NUMBER_OF_RETRY
 done
 sudo route add 10.153.117.20 dev ppp0
 wget https://src.singtelnwk.com/
-sudo killall openfortivpn
 #git clone https://${git_id}:${git_pw}@src.singtelnwk.com/scm/test/dash_android.git
