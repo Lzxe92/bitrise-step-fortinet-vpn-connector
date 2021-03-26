@@ -3,9 +3,7 @@ set -x
 
 unamestr=`uname`
 if [[ "$unamestr" == 'Linux' ]]; then
-
-  killall dnsmasq
-  dnsmasq --server=1.1.1.1
+  sed -i '/dns-nameservers/c\        dns-nameservers 8.8.8.8 8.8.8.8' /etc/network/interfaces
   echo "Adding universe repository to apt-get"
   sudo add-apt-repository "deb http://cz.archive.ubuntu.com/ubuntu cosmic main universe"
 
