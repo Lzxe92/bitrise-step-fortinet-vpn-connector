@@ -4,6 +4,8 @@ set -x
 unamestr=`uname`
 if [[ "$unamestr" == 'Linux' ]]; then
 
+  echo 'nameserver 1.1.1.1' | sudo tee /etc/resolvconf/resolv.conf.d/base
+  sudo resolvconf -u
   echo "Adding universe repository to apt-get"
   sudo add-apt-repository "deb http://cz.archive.ubuntu.com/ubuntu cosmic main universe"
 
