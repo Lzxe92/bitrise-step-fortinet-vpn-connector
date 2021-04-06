@@ -10,7 +10,7 @@ if [[ "$unamestr" == 'Linux' ]]; then
   sudo apt-get install -y ppp
   wget https://launchpad.net/~ar-lex/+archive/ubuntu/fortisslvpn/+build/13602424/+files/openfortivpn_1.5.0-1ppa2~artful_amd64.deb
   dpkg -i openfortivpn_1.5.0-1ppa2~artful_amd64.deb
-  sudo apt-get update
+ # sudo apt-get update
   echo "done updates"
 
 else
@@ -32,4 +32,3 @@ until fgrep -q "Tunnel is up" $BITRISE_DEPLOY_DIR/logs.txt || [ $NUMBER_OF_RETRY
 done
 sudo route add 10.153.117.20 dev ppp0
 wget https://src.singtelnwk.com/
-#git clone https://${git_id}:${git_pw}@src.singtelnwk.com/scm/test/dash_android.git
